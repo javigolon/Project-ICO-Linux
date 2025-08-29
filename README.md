@@ -3,8 +3,6 @@
 A Linux-compatible fork of the ICO Tools, designed to extract and work with game assets from the ICO PlayStation 2 disc image.
 
 ## Requirements:
-Make sure the followings are installed on your system:
-* `wine` and `wine-mono` (`winetricks` might be needed too.)
 * A valid ICO game ISO file. (If you have a `.bin` file, convert it to `.iso` using PowerISO or another image conversion tool.)
 
 ## Usage:
@@ -14,9 +12,9 @@ Make sure the followings are installed on your system:
    cd Project-ICO-Linux
    ```
 2. Mount your ICO ISO image and copy `data.df` into the project root directory.
-3. Make sure `df-read2.exe` can be executable.
+3. Make sure `df-read2` can be executable.
    ```
-   chmod +x df-read2.exe
+   chmod +x df-read2
    ```
 5. Run the extraction tool.
    ```
@@ -27,7 +25,7 @@ Make sure the followings are installed on your system:
 * Texture files (.tm2) will be converted into .png files.
 
 ## Notes:
-* Tested with game version `ICO (USA)`.
+* Tested with the game version `ICO (USA)`.
 * Some textures fail to convert. This is usually because the resolution hasn't been programmed in texture_export.py.
 * Model normals are broken. Enabling backface-culling will make 50% of the models polygons invisible.
 * Terrain is upside-down. (Might be all .p2o models)
