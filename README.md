@@ -1,31 +1,41 @@
-# Project-ICO
+# Project ICO Tools (Linux Fork)
 
-Welcome to Project Ico tools.
+A Linux-compatible fork of the ICO Tools, designed to extract and work with game assets from the ICO PlayStation 2 disc image.
 
-Usage:
-Have Python 3 installed.
-Mount the Ico game ISO.
-Open cmd, type "python main.py X:DFDATAS\DATA.DF", where X: is the drive you mounted Ico to.
-All game files will be extracted into the data folder.
-Model files (.p2o and .p2c) will be converted into .obj and .mtl files.
-Texture files (.tm2) will be converted into .png files.
+## Requirements:
+Make sure the followings are installed on your system:
+* `wine` and `wine-mono` (`winetricks` might be needed too.)
+* A valid ICO game ISO file. (If you have a `.bin` file, convert it to `.iso` using PowerISO or another image conversion tool.)
 
-Notes:
-Some textures fail to convert. This is usually because the resolution hasn't been programmed in texture_export.py.
-Model normals are broken. Enabling backface-culling will make 50% of the models polygons invisible.
-Terrain is upside-down. (Might be all .p2o models)
+## Usage:
+1. Clone this repository.
+   ```
+   git clone https://github.com/javigolon/Project-ICO-Linux.git
+   cd Project-ICO-Linux
+   ```
+2. Mount your ICO ISO image and copy `data.df` into the project root directory.
+3. Make sure `df-read2.exe` can be executable.
+   ```
+   chmod +x df-read2.exe
+   ```
+5. Run the extraction tool.
+   ```
+   python main.py data.df
+   ```
+* All game files will be extracted into the `data` folder.
+* Model files (.p2o and .p2c) will be converted into .obj and .mtl files.
+* Texture files (.tm2) will be converted into .png files.
 
-Todo:
-Better aglorithm for texture exporting, such that only one algorithm is needed for all texture resolutions.
-Figure out if it's possible to get correct normals.
-Figure out structure of other file types.
-Cleanup of code.
+## Notes:
+* Tested with game version `ICO (USA)`.
+* Some textures fail to convert. This is usually because the resolution hasn't been programmed in texture_export.py.
+* Model normals are broken. Enabling backface-culling will make 50% of the models polygons invisible.
+* Terrain is upside-down. (Might be all .p2o models)
 
-Thanks:
-majo33 for the creation of df-read2 https://github.com/majo33/df-read2
-ps23dformat.wikispaces.com (Archive.org only) for hosting valuable information on Ico's file structures. It is sad that the website is defunct as they had information on dozens of games, which you can find almost nowhere else.
+## Thanks:
+* Half-asian for original project.
+* majo33 for the creation of df-read2 https://github.com/majo33/df-read2
+* ps23dformat.wikispaces.com (Archive.org only) for hosting valuable information on Ico's file structures. It is sad that the website is defunct as they had information on dozens of games, which you can find almost nowhere else.
 
 Hopes and dreams:
 People will make cool stuff with the Ico content. Also, full debug symbols for the Ico binary are literaly included on the European version of the disc. They are just waiting to be reverse engineered.
-
-If you would like to help start a community for Ico content, join the Discord here: https://discord.gg/P58MhRC
