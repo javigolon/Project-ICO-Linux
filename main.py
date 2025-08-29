@@ -9,7 +9,7 @@ if (len(sys.argv) != 2):
     print("Please provide the path to data.df")
     sys.exit()
 print(sys.argv[1])
-subprocess.call("./df-read2.exe", shell=True)
+subprocess.call(["./df-read2",sys.argv[1]])
 
 path = 'data'
 
